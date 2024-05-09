@@ -6,12 +6,12 @@
 #    By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 13:26:25 by oemelyan          #+#    #+#              #
-#    Updated: 2024/04/21 20:53:08 by oemelyan         ###   ########.fr        #
+#    Updated: 2024/05/07 17:15:21 by oemelyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -g #-fsanitize=address
+CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=address
 NAME	= philo
 OBJDIR	= obj
 SRCS	= 	$(wildcard *.c)

@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 19:43:55 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/04/30 13:31:02 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:00:42 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main (int ac, char **av)
 	t_input		start;
 	t_philo		*ph;
 
+	ph = NULL;
 	start.av = av;
 	start.meals = -1;
 	if (ac_check(ac, &start) == -1)
@@ -54,10 +55,13 @@ int main (int ac, char **av)
 		return(1);
 	}
 	parsing(&start, ac);
-	init_struct(&start, &ph);
-	init_mutexes(&start, &ph);
+	ph = malloc(sizeof(t_philo) * start.philo_num);
+	init_philos(&start, ph);
+	start.philos = ph;
 	do_threads(&start, ph);
-	free_everything(ph);
+	ft_exit(0, &start, ph);
 	return(0);
 }
+
+
 
