@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:40:37 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/10 13:25:41 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:09:04 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,36 @@ int	check_feed(t_philo *ph, t_input *start)
 	}
 	pthread_mutex_unlock(&ph->private_lock);
 	pthread_mutex_lock(ph->global);
-		if (start->they_full == start->philo_num)
-		{
-			start->dead_man = 1;
-			printf("monitor: they all are full\n");
-			pthread_mutex_unlock(ph->global);
-			return (1);
-		}
+	if (start->they_full == start->philo_num)
+	{
+		start->dead_man = 1;
+		pthread_mutex_unlock(ph->global);
+		return (1);
+	}
 	pthread_mutex_unlock(ph->global);
-	return(0);
+	return (0);
 }
 
-int check_death(t_philo *ph)
+int	check_death(t_philo *ph)
 {
 	uint64_t		t;
 
 	t = get_time();
-	//printf("death status: %d\n", ph->input->dead_man);
 	pthread_mutex_lock(&ph->private_lock);
-	if ((t - ph->input->start_time - ph->time_last_eaten) > ph->input->time_to_die)
+	if ((t - ph->input->start_time - ph->time_last_eaten) > \
+		ph->input->time_to_die)
 	{
 		pthread_mutex_unlock(&ph->private_lock);
-		printf("time passed: %f\n", (t - ph->time_last_eaten - ph->input->start_time));
 		pthread_mutex_lock(ph->global);
 		ph->input->dead_man = 1;
-		printf("philo %d died\n", ph->id);
 		pthread_mutex_unlock(ph->global);
 		return (1);
 	}
 	pthread_mutex_unlock(&ph->private_lock);
-	return(0);
+	return (0);
 }
 
-void monitor(t_input *start, t_philo *ph)
+void	monitor(t_input *start, t_philo *ph)
 {
 	unsigned int	i;
 

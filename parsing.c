@@ -6,25 +6,24 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 20:28:24 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/08 21:42:36 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:13:22 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		get_number(char *s)
+int	get_number(char *s)
 {
-	int result;
+	int	result;
 
 	result = 0;
-
-	while(*s >= '0' && *s <= '9' && *s != '\0')
+	while (*s >= '0' && *s <= '9' && *s != '\0')
 	{
 		result = result * 10;
 		result += *s - '0';
 		s++;
 	}
-	return(result);
+	return (result);
 }
 
 u_int64_t	get_input_time(char *s)
@@ -32,22 +31,21 @@ u_int64_t	get_input_time(char *s)
 	u_int64_t		result;
 
 	result = 0;
-	while(*s >= '0' && *s <= '9' && *s != '\0')
+	while (*s >= '0' && *s <= '9' && *s != '\0')
 	{
 		result = result * 10;
 		result += *s - '0';
 		s++;
 	}
-	return(result);
+	return (result);
 }
-
 
 void	parsing(t_input *start, int ac)
 {
 	start->dead_man = 0;
 	start->they_full = 0;
 	start->philo_num = get_number(start->av[1]);
-	if(start->philo_num < 1 || start->philo_num > 200)
+	if (start->philo_num < 1 || start->philo_num > 200)
 	{
 		write(2, "invalid input", 13);
 		return ;

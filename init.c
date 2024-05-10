@@ -6,13 +6,13 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:58:11 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/10 13:52:45 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:14:20 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void forks(t_input *start)
+void	forks(t_input *start)
 {
 	int		i;
 
@@ -24,14 +24,14 @@ void forks(t_input *start)
 	}
 }
 
-void init_philos(t_input *start, t_philo *ph)
+void	init_philos(t_input *start, t_philo *ph)
 {
 	int		i;
 	int		index;
 
 	i = 0;
 	index = 1;
-	while(i < start->philo_num)
+	while (i < start->philo_num)
 	{
 		ph[i].id = index;
 		ph[i].input = start;

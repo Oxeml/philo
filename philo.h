@@ -6,21 +6,21 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 20:19:13 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/10 12:56:45 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:09:54 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
-#define PHILO_H
+# define PHILO_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <pthread.h>
-#include <inttypes.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <pthread.h>
+# include <inttypes.h>
+# include <unistd.h>
 
-typedef struct s_philo t_philo;
+typedef struct s_philo	t_philo;
 
 typedef struct s_input
 {
@@ -64,7 +64,7 @@ void		*ft_calloc(size_t count, size_t size);
 void		ft_bzero(void *str, size_t n);
 
 //main part
-void do_threads(t_input *start, t_philo *ph);
+void		do_threads(t_input *start, t_philo *ph);
 void		print_out(char *s, t_philo *philo);
 void		take_forks(t_philo *philo);
 void		eat_pasta(t_philo *ph);
@@ -72,7 +72,7 @@ void		go_sleep(t_philo *ph);
 void		monitor(t_input *start, t_philo *ph);
 
 //cleaning up
-void 		ft_exit(int  err, t_input *start, t_philo *ph);
+void		ft_exit(int err, t_input *start, t_philo *ph);
 void		free_start(t_input *start);
 void		free_philo(t_philo *ph);
 #endif
