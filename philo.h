@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 20:19:13 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/09 10:35:26 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:56:45 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_philo
 	double					time_last_eaten;
 	int						is_dead;
 	int						meals_left;
+	pthread_mutex_t			*global;
 	t_input					*input;
 }	t_philo;
 

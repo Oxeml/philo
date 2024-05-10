@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:58:11 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/09 10:36:20 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:52:45 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void init_philos(t_input *start, t_philo *ph)
 		ph[i].is_dead = 0;
 		ph[i].checked_by_monitor = 0;
 		ph[i].meals_left = start->meals;
+		ph[i].global = &start->global_lock;
+		ph[i].time_last_eaten = 0;
 		pthread_mutex_init(&ph[i].private_lock, NULL);
 		i++;
 		index++;
