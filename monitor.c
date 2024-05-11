@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:40:37 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/10 15:09:04 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/11 15:03:44 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	check_death(t_philo *ph)
 		pthread_mutex_unlock(&ph->private_lock);
 		pthread_mutex_lock(ph->global);
 		ph->input->dead_man = 1;
+		printf("%llu %d died\n", t - ph->input->start_time, ph->id);
 		pthread_mutex_unlock(ph->global);
 		return (1);
 	}
@@ -65,7 +66,6 @@ void	monitor(t_input *start, t_philo *ph)
 			break ;
 		if (check_death(&ph[i % start->philo_num]))
 			break ;
-		ft_usleep(60 / start->philo_num);
 		i++;
 	}
 	return ;

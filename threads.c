@@ -6,7 +6,7 @@
 /*   By: oemelyan <oemelyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 16:49:46 by oemelyan          #+#    #+#             */
-/*   Updated: 2024/05/10 14:58:57 by oemelyan         ###   ########.fr       */
+/*   Updated: 2024/05/11 15:14:18 by oemelyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	*routine(void *arg)
 		pthread_mutex_unlock(philo->lfork_lock);
 		pthread_mutex_unlock(philo->rfork_lock);
 		go_sleep(philo);
-		if (dead_check(philo))
+		if (!dead_check(philo))
+			print_out("is thinking\n", philo);
+		else
 			break ;
-		print_out("is thinking\n", philo);
 	}
 	return (NULL);
 }
